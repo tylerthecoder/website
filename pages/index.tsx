@@ -1,7 +1,6 @@
 import type { NextPage } from 'next'
 import useTypeyText from '../utils/hooks/useTypyText'
 import headshotPic from "../public/headshot.webp"
-import homeBg from "../public/red-background.jpg"
 import { CrazyImage } from '../components/CrazyImage'
 import Image from "next/image";
 import { useEffect, useState } from 'react'
@@ -28,19 +27,11 @@ const Home: NextPage = () => {
 
   useEffect(() => {
     API.getCurrentSong().then(setSong);
-  });
+  }, []);
 
   return <div>
     <div className="w-full h-screen flex flex-col justify-center items-center">
-      {/* <div className="pointer-events-none">
-        <Image
-          src={homeBg}
-          alt="background image"
-          layout="fill"
-          className="absolute -z-1"
-        />
-      </div> */}
-      <div className="flex items-center">
+      <div className="md:flex md:items-center">
         <div className="absolute top-0 bottom-0 left-0 right-0 -z-1 pointer-events-none">
           <SplashBackground />
         </div>
@@ -58,11 +49,12 @@ const Home: NextPage = () => {
         </div>
       </div>
       <div className="pt-20 flex justify-evenly w-full space-x-0">
-        <Link href={"about"}>
-
+        <Link href={"about"} passHref>
+          <button className={styles.btn}> About </button>
+        </Link>
+        <Link href={"projects"} passHref>
           <button className={styles.btn}> Projects </button>
         </Link>
-        <button className={styles.btn}> Hire Me </button>
       </div>
     </div>
   </div>

@@ -8,10 +8,24 @@ export type CurrentSong = {
 	imageUrl: string;
 }
 
+export type Creation = {
+	name: string;
+	description: string;
+	link: string;
+	type: string;
+	img: string;
+}
+
 
 class ApiClass {
 	async getCurrentSong(): Promise<CurrentSong> {
 		const res = await fetch(`${SERVER_URL}/spotify/current`)
+		const data = await res.json();
+		return data;
+	}
+
+	async getCreations(): Promise<Creation[]> {
+		const res = await fetch(`${SERVER_URL}/creations`)
 		const data = await res.json();
 		return data;
 	}

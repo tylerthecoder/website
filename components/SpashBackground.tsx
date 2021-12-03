@@ -1,15 +1,9 @@
 import { useEffect, useRef } from "react";
+import { useAnimationFrame } from "../hooks/useAnimationFrame";
+import { drawCircle, Vector } from "../services/drawingService";
 
-type Vector = { x: number, y: number };
 const maxY = Math.sqrt(3) / 2;
 const points: Array<{ x: number, y: number }> = [{ x: 0, y: 0 }];
-
-function drawCircle(ctx: CanvasRenderingContext2D, pos: Vector, radius: number, color: string) {
-	ctx.beginPath();
-	ctx.arc(pos.x, pos.y, radius, 0, 2 * Math.PI);
-	ctx.fillStyle = color;
-	ctx.fill();
-}
 
 const getNextPoint = (currentPoint: Vector): Vector => {
 	const c = Math.floor(Math.random() * 3);
@@ -63,6 +57,7 @@ const drawNext = (canvas: HTMLCanvasElement) => {
 }
 
 const loop = (canvas: HTMLCanvasElement) => {
+	console.log("Splash Loop")
 	for (let i = 0; i < 10; i++) {
 		drawNext(canvas);
 	}
@@ -72,12 +67,11 @@ const loop = (canvas: HTMLCanvasElement) => {
 export const SplashBackground = () => {
 	const canvasRef = useRef<HTMLCanvasElement>(null);
 
-	useEffect(() => {
-		const canvas = canvasRef.current;
-		if (!canvas) return;
-		const rafIndex = requestAnimationFrame(() => loop(canvas));
-		return () => cancelAnimationFrame(rafIndex);
-	});
+	useAnimationFrame(() => {
+		if (canvasRef.current) {
+			loop(canvasRef.current);
+		}
+	}, []);
 
 	useEffect(() => {
 		const listener = () => {

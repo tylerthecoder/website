@@ -10,7 +10,7 @@ type Props = {
 export const CrazyImage = (props: Props) => {
 	const { src, alt, width, height } = props;
 
-	return <div className="flex">
+	return <div className="flex justify-center">
 		<div className="absolute">
 			<Image
 				src={src}
