@@ -35,7 +35,7 @@ const About: NextPage = () => {
 			<NavBar />
 			<div className={"flex flex-grow bg-gray-800 relative"}>
 				<div className="absolute top-0 bottom-0 left-0 right-0 pointer-events-none">
-					{/* <BouncingBackground /> */}
+					<BouncingBackground />
 				</div>
 				<div className={"absolute top-0 left-8"}>
 					<FallingBookmark />
