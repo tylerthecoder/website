@@ -46,7 +46,7 @@ const Home: NextPage<InferGetServerSidePropsType<typeof getServerSideProps>> = (
           height={300}
         />
         <div>
-          <h1 className="text-6xl text-white"> Hi, I'm Tyler </h1>
+          <h1 className="text-6xl text-white text-center"> Hi, I'm Tyler </h1>
           <Subtitle />
           <NowPlaying currentSong={props.currentSong} />
         </div>

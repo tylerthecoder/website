@@ -57,7 +57,6 @@ const drawNext = (canvas: HTMLCanvasElement) => {
 }
 
 const loop = (canvas: HTMLCanvasElement) => {
-	console.log("Splash Loop")
 	for (let i = 0; i < 10; i++) {
 		drawNext(canvas);
 	}
