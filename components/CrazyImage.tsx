@@ -22,7 +22,7 @@ export const CrazyImage = (props: Props) => {
 		</div>
 		<div style={{ width: width + "px" }}>
 			<div
-				style={{ animationName: "imageSlider", animationDuration: "2s", height: height + "px" }}
+				style={{ animationName: "imageSlider", animationDelay: "1s", animationDuration: "2s", height: height + "px" }}
 				className="overflow-x-hidden relative"
 			>
 				<Image
@@ -31,6 +31,7 @@ export const CrazyImage = (props: Props) => {
 					layout="fill"
 					objectFit='cover'
 					objectPosition='0% 0%'
+					priority
 				/>
 			</div>
 		</div>

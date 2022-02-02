@@ -42,13 +42,13 @@ const About: NextPage = () => {
 				</div>
 				<div className="w-1/5" ></div>
 				<div className="p-5 w-4/5 body-text text-white z-1">
-					<p className="pb-1"> Hello! My name is Tyler Tracy. I'm a full stack developer </p>
+					<p> Hello! My name is Tyler Tracy. I'm a full stack developer </p>
 
 					<p>
 						I graduated from the University of Arkansas in December 2020 with a B.S. in Computer Science.
 					</p>
 
-					<h3> Experience </h3>
+					<h3 className="text-2xl font-bold mt-4"> Experience </h3>
 
 					<div className="grid grid-cols-3 gap-4 my-5">
 						<div className="relative bg-white p-3 rounded-3xl box-border">
