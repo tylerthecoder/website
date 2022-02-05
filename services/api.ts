@@ -18,6 +18,14 @@ export type Creation = {
 }
 
 
+export type SearchTrack = {
+	trackName: string,
+	imgUrl: string,
+	artist: string,
+	id: string;
+}
+
+
 class ApiClass {
 	async getCurrentSong(): Promise<CurrentSong> {
 		const res = await fetch(`${SERVER_URL}/me/listening-to`)
@@ -41,12 +49,20 @@ class ApiClass {
 		return res.json();
 	}
 
+	async searchTracks(query: string): Promise<SearchTrack[]> {
+		const res = await fetch(`${SERVER_URL}/vibage/search?q=${query}`);
+		return res.json();
+	}
+
 	async addSong(trackId: string): Promise<Vibe> {
 		const res = await fetch(`${SERVER_URL}/vibage/track/`, {
 			method: "POST",
 			body: JSON.stringify({
 				trackId
-			})
+			}),
+			headers: {
+				"Content-Type": "application/json"
+			}
 		});
 		return res.json();
 	}

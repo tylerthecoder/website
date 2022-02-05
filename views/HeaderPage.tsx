@@ -6,8 +6,6 @@ interface Props {
 }
 
 const HeaderPage = ({ children }: Props) => {
-
-
 	return <div>
 		<NavBar />
 		{children}
