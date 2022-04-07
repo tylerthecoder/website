@@ -1,6 +1,6 @@
 import { Vibe } from "../pages/vibage";
 
-const SERVER_URL = process.env.NEXT_PUBLIC_API_URL;
+export const SERVER_URL = process.env.NEXT_PUBLIC_API_URL;
 
 export type CurrentSong = {
 	state: string;
