@@ -34,7 +34,7 @@ const ControlPanel: NextPage<Props> = (props: Props) => {
 }
 
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
 	const data = await API.getLights();
 
 	return {
