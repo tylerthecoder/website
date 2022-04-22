@@ -184,7 +184,7 @@ const Vibage: NextPage<Props> = (props) => {
 	</FullHeaderPage>
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
 	const data = await API.getVibe();
 	return {
 		props: {

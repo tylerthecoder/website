@@ -44,7 +44,7 @@ const Projects: NextPage<Props> = (props) => {
 	)
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
 	const data = await API.getCreations();
 	return {
 		props: {
