@@ -6,7 +6,9 @@ interface Props {
 }
 
 const HeaderPage = ({ children }: Props) => {
-	return <div>
+	return <div
+		className="flex flex-col h-screen relative bg-gray-800 "
+	>
 		<NavBar />
 		{children}
 	</div>

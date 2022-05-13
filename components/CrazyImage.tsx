@@ -18,6 +18,7 @@ export const CrazyImage = (props: Props) => {
 				className="filter invert"
 				width={width}
 				height={height}
+				priority
 			/>
 		</div>
 		<div style={{ width: width + "px" }}>

@@ -1,13 +1,13 @@
-import type { InferGetServerSidePropsType, NextPage } from 'next'
+import type { InferGetServerSidePropsType, NextPage, } from 'next'
 import useTypeyText from '../utils/hooks/useTypyText'
 import headshotPic from "../public/headshot.webp"
 import { CrazyImage } from '../components/CrazyImage'
 import Image from "next/image";
-import API from '../services/api'
+import API, { CurrentSong } from '../services/api'
 import { NowPlaying } from '../components/NowPlaying'
 import { SplashBackground } from '../components/SpashBackground'
-import styles from "../styles/Home.module.css"
 import Link from "next/link"
+import { useEffect, useState, ButtonHTMLAttributes } from 'react';
 
 const Subtitle = () => {
   const { typedText, cursor } = useTypeyText("Full Stack Developer");
@@ -20,18 +20,47 @@ const Subtitle = () => {
   </div>
 }
 
-export async function getServerSideProps() {
-  const data = await API.getCurrentSong()
-  return {
-    props: {
-      currentSong: data
-    },
-  }
+const HomButton = (props: ButtonHTMLAttributes<HTMLButtonElement> & { href: string, iconSrc: string, iconAlt: string }) => {
+  return <Link href={props.href} passHref>
+    <button
+      {...props}
+      className="
+        py-2 px-4 font-semibold border-2 border-white
+        rounded-lg shadow-md text-white bg-gray-400 bg-opacity-70
+        transform scale-100 duration-150 hover:scale-110 hover:bg-opacity-90
+        flex items-center justify-center
+      "
+    >
+      <div
+        className='mr-1'
+      >
+        <Image
+          src={props.iconSrc}
+          width={32}
+          height={32}
+          alt={props.iconAlt}
+        />
+      </div>
+      {props.children}
+    </button>
+  </Link>
 }
 
-const Home: NextPage<InferGetServerSidePropsType<typeof getServerSideProps>> = (props) => {
+const Home = () => {
   const showAboutButton = false;
-  const showProjectsButton = false;
+  const showProjectsButton = true;
+
+  const [currentSong, setCurrentSong] = useState<CurrentSong | null>(null);
+
+  const fetchData = async () => {
+    const song = await API.getCurrentSong();
+    setCurrentSong(song);
+  }
+
+  useEffect(() => {
+    fetchData();
+  }, [])
+
 
   return <div>
     <div className="w-full h-screen flex flex-col justify-center items-center bg-black">
@@ -48,47 +77,43 @@ const Home: NextPage<InferGetServerSidePropsType<typeof getServerSideProps>> = (
         <div>
           <h1 className="text-6xl text-white text-center"> Hi, I'm Tyler </h1>
           <Subtitle />
-          <NowPlaying currentSong={props.currentSong} />
+          {!!currentSong && <NowPlaying currentSong={currentSong} />}
         </div>
       </div>
       <div className="pt-20 flex justify-evenly w-full space-x-0">
         {showAboutButton &&
-          <Link href={"about"} passHref>
-            <button className={styles.btn}> About </button>
-          </Link>
+          <HomButton
+            iconAlt='Github logo'
+            iconSrc='/resume.svg'
+            href={"about"}
+          > About </HomButton>
         }
-        <Link href={"https://files.tylertracy.com/resume.pdf"} passHref>
-          <button className={styles.btn}>
-            <div className='mr-1' >
-              <Image
-                src="/resume.svg"
-                width={32}
-                height={32}
-                alt="Github logo"
-              />
-            </div>
-            Resume
-          </button>
-        </Link>
-        <Link href={"https://github.com/tylerthecoder"} passHref>
-          <button className={styles.btn}>
-            <div
-              className='mr-1'
-            >
-              <Image
-                src="/github.png"
-                width={32}
-                height={32}
-                alt="Github logo"
-              />
-            </div>
-            Github
-          </button>
-        </Link>
+
+        <HomButton
+          iconAlt='Github logo'
+          iconSrc='/resume.svg'
+          href={"https://files.tylertracy.com/resume.pdf"}
+        >
+          Resume
+        </HomButton>
+
+
+        <HomButton
+          href={"https://github.com/tylerthecoder"}
+          iconSrc="/github.png"
+          iconAlt="Github logo"
+        >
+          Github
+        </HomButton>
+
         {showProjectsButton &&
-          <Link href={"projects"} passHref>
-            <button className={styles.btn}> Projects </button>
-          </Link>
+          <HomButton
+            iconSrc='/code.svg'
+            iconAlt='Code symbol'
+            href={"projects"}
+          >
+            Projects
+          </HomButton>
         }
       </div>
     </div>

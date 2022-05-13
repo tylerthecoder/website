@@ -1,13 +1,11 @@
 import { NextPage } from "next";
-import NavBar from "../components/NavBar";
 import headshot from "../public/headshot.webp";
 import supplypikeImg from "../public/supplypike.png";
+import gcloudImg from "../public/gcloud.png";
 import Image from "next/image";
 import { motion } from "framer-motion"
 import { BouncingBackground } from "../components/BouncingBackground";
-import { SplashBackground } from "../components/SpashBackground";
-
-
+import HeaderPage from "../views/HeaderPage";
 
 const FallingBookmark = () => {
 	return <motion.div
@@ -28,12 +26,25 @@ const FallingBookmark = () => {
 	</motion.div>
 }
 
+const WorkCard = (props: {
+	img: StaticImageData,
+	alt: string,
+	label: string
+}) => {
+	return <div className="w-[300px] m-4 relative bg-slate-100 p-3 rounded-3xl box-border">
+		<Image
+			src={props.img}
+			alt={props.alt}
+			layout="responsive"
+		/>
+		<p className="fun-text text-black text-center"> {props.label} </p>
+	</div>
+}
 
 const About: NextPage = () => {
 	return (
-		<div className={"flex flex-col h-screen relative"}>
-			<NavBar />
-			<div className={"flex flex-grow bg-gray-800 relative"}>
+		<HeaderPage>
+			<div className={"flex flex-grow relative"}>
 				<div className="absolute top-0 bottom-0 left-0 right-0 pointer-events-none">
 					<BouncingBackground />
 				</div>
@@ -41,7 +52,7 @@ const About: NextPage = () => {
 					<FallingBookmark />
 				</div>
 				<div className="w-1/5" ></div>
-				<div className="p-5 w-4/5 body-text text-white z-1">
+				<div className="p-5 max-w-[1000px] body-text text-white z-1">
 					<p> Hello! My name is Tyler Tracy. I'm a full stack developer </p>
 
 					<p>
@@ -50,35 +61,33 @@ const About: NextPage = () => {
 
 					<h3 className="text-2xl font-bold mt-4"> Experience </h3>
 
-					<div className="grid grid-cols-3 gap-4 my-5">
-						<div className="relative bg-white p-3 rounded-3xl box-border">
-							<Image
-								src={supplypikeImg}
-								alt="supplypike"
-								layout="responsive"
-							/>
-							<p className="fun-text text-black text-center"> SupplyPike </p>
-						</div>
-						<div className="col-span-2">
-							<p>
-								My first internship was as SupplyPike
-							</p>
-						</div>
+					<div className="flex">
+						<WorkCard
+							alt="supplypike"
+							img={supplypikeImg}
+							label={"Former software engineer"}
+						/>
+						<WorkCard
+							alt="gcloud"
+							img={gcloudImg}
+							label={"Cloud AI engineer"}
+						/>
 					</div>
 
 					<p>
 						Around the age of 30, I plan to start my world domination plan.
-						I will topple governments, starting with america, in hopes to start the next phase of humanity.
+						I will topple governments and destroy world organizations, all in hopes to start the next phase of humanity.
 						To accomplish this, a large amount of stealth and charisma will be used.
-						Then the abolition of human drivable cars, Mars colonization, and a the creation of
-						Dyson sphere around our sun will then be of utmost priority to me in order to rapidly
+						The abolition of human operated cars, Mars colonization, and the creation of
+						a Dyson sphere around our sun will then be of utmost priority to me in order to rapidly
 						progress the human race. I will work from the shadows and create powerless figure
-						heads so assassination attempts will not be a problem for me. If all goes well immortality
-						will be common place by when I am around the age of 60 so death will never be known to me.
+						heads making me virtually immune from assassination. If all goes well immortality
+						will be common place by my 60s so death will elude me forever.
+						I will live out my days on a farm to finally rest, and watch the sun rise on a grateful universe :)
 					</p>
 				</div>
 			</div>
-		</div>
+		</HeaderPage>
 	);
 };
 

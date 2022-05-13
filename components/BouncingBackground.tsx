@@ -130,7 +130,8 @@ class BouncingController {
 
 		this.ball1.draw(ctx);
 		this.ball2.draw(ctx);
-		drawCircle(ctx, mousePos, 5, "red");
+		// Debugging red circle
+		// drawCircle(ctx, mousePos, 5, "red");
 	}
 
 }

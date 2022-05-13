@@ -20,7 +20,7 @@ const NavBar = () => {
 		<ul className="flex border-b-2 border-black w-full">
 			<NavItem label="Home" href="/" />
 			<NavItem label="About" href="/about" />
-			<NavItem label="Project" href="/projects" />
+			<NavItem label="Projects" href="/projects" />
 		</ul>
 	</nav>
 }
