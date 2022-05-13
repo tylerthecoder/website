@@ -53,9 +53,7 @@ const About: NextPage = () => {
 				</div>
 				<div className="w-1/5" ></div>
 				<div className="p-5 max-w-[1000px] body-text text-white z-1">
-					<p> Hello! My name is Tyler Tracy. I'm a full stack developer </p>
-
-					<p>
+					<p> Hello! My name is Tyler Tracy. I'm a full stack developer.
 						I graduated from the University of Arkansas in December 2020 with a B.S. in Computer Science.
 					</p>
 
