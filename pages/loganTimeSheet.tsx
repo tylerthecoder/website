@@ -62,7 +62,7 @@ const TimeItemView = (props: {
   const dateString = new Date(item.dateDone).toLocaleDateString();
 
   return (
-    <div className="flex p-5 m-5 border-2 border-black gap-2">
+    <div className="flex p-5 my-3 border-2 border-black gap-2">
       <div> {dateString} </div>
       <div>{item.who}</div>
       <div>{item.hours}</div>
@@ -93,12 +93,12 @@ const CreateTimeItem = (props: { onAdd: (item: TimeItem) => void }) => {
   };
 
   return (
-    <div className="flex flex-wrap p-5 m-5 border-2 border-black bg-slate-700 gap-2">
-      <div>
+    <div className="p-5 border-2 border-black md:flex bg-slate-700 gap-2">
+      <div className="p-2">
         <label> Date </label>
         <DatePicker value={date} onChange={setDate} />
       </div>
-      <div>
+      <div className="p-2">
         <label> Who </label>
         <input
           type="text"
@@ -106,7 +106,7 @@ const CreateTimeItem = (props: { onAdd: (item: TimeItem) => void }) => {
           onChange={(e) => setWho(e.target.value)}
         />
       </div>
-      <div>
+      <div className="p-2">
         <label> Hours </label>
         <input
           type="number"
@@ -114,7 +114,7 @@ const CreateTimeItem = (props: { onAdd: (item: TimeItem) => void }) => {
           onChange={(e) => setHours(parseInt(e.target.value))}
         />
       </div>
-      <div>
+      <div className="p-2">
         <label> Minutes </label>
         <input
           type="number"
@@ -125,7 +125,9 @@ const CreateTimeItem = (props: { onAdd: (item: TimeItem) => void }) => {
           onChange={(e) => setMinutes(parseInt(e.target.value))}
         />
       </div>
-      <button onClick={() => addItem()}>Add</button>
+      <button className="p-2" onClick={() => addItem()}>
+        Add
+      </button>
     </div>
   );
 };
@@ -141,7 +143,7 @@ const LoganTimeSheet: NextPage = () => {
   }, 0);
 
   return (
-    <div className="p-2">
+    <div className="p-1 md:p-2">
       <Head>
         <meta
           name="viewport"
