@@ -7,6 +7,6 @@ deploy:
 	--exclude ".next" \
 	--exclude ".vercel" \
 	--exclude "node_modules" \
-	 pi@10.0.0.7:~/dev/website/
+	 pi:~/dev/website/
 # Run Deploy Command
-	ssh pi@10.0.0.7 "sudo -u pi ~/owl/home-pi/start-eco.sh"
+	ssh pi "sudo -u pi ~/owl/home-pi/start-eco.sh"
