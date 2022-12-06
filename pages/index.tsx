@@ -1,4 +1,3 @@
-import type { InferGetServerSidePropsType, NextPage, } from 'next'
 import useTypeyText from '../utils/hooks/useTypyText'
 import headshotPic from "../public/headshot.webp"
 import { CrazyImage } from '../components/CrazyImage'
