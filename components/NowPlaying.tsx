@@ -1,5 +1,5 @@
 import { CurrentSong } from "../services/api"
-import Image from "next/image";
+import Image from "next/legacy/image";
 
 type Props = {
 	currentSong: CurrentSong;

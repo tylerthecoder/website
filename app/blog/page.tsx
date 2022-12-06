@@ -1,8 +1,9 @@
 import MarkdownView from 'react-showdown';
-import showdownKatex from 'showdown-katex';
+import markdownToHtml from '../../utils/markdownToHtml';
+// import showdownKatex from 'showdown-katex';
 
 
-export default function Page() {
+export default async function Page() {
 	const markdown = `
 # Welcome to React Showdown :+1:
 
@@ -26,25 +27,15 @@ $$\\sum_{i=0}^n i^2 = \\frac{(n^2+n)(2n+1)}{6}$$
 
 `;
 
-	console.log(showdownKatex({})()[0])
+	const html = await markdownToHtml(markdown);
 
+	// console.log(showdownKatex({})()[0])
 
 	return (
-		<MarkdownView
-			markdown={markdown}
-			options={{
-				tables: true,
-				emoji: true,
-
-			}}
-			extensions={[
-				showdownKatex({
-					displayMode: false
-				})()[0]
-			]}
-		/>
+		<div className="math math-display"><span className="katex-display">
+			<div
+				dangerouslySetInnerHTML={{ __html: html }}
+			/>
+		</span></div>
 	)
-
-
-
 }

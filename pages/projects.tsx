@@ -1,6 +1,6 @@
 import { NextPage } from "next";
 import API, { Creation } from "../services/api";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import HeaderPage from "../views/HeaderPage";
 
 interface IProjectProps {

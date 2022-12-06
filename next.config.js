@@ -4,4 +4,7 @@ module.exports = {
   images: {
     domains: ['i.scdn.co', 'files.tylertracy.com'],
   },
+  experimental: {
+    appDir: true,
+  }
 }

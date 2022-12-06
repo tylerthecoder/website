@@ -1,7 +1,7 @@
 import useTypeyText from '../utils/hooks/useTypyText'
 import headshotPic from "../public/headshot.webp"
 import { CrazyImage } from '../components/CrazyImage'
-import Image from "next/image";
+import Image from "next/legacy/image";
 import API, { CurrentSong } from '../services/api'
 import { NowPlaying } from '../components/NowPlaying'
 import { SplashBackground } from '../components/SpashBackground'

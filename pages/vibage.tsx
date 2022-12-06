@@ -3,7 +3,7 @@ import { forwardRef, useEffect, useState } from "react";
 import API, { SearchTrack } from "../services/api";
 import styles from "../styles/Vibage.module.css";
 import FullHeaderPage from "../views/FullHeaderPage";
-import Image from "next/image"
+import Image from "next/legacy/image";
 import { motion } from "framer-motion";
 import FlipMove from 'react-flip-move';
 
