@@ -25,10 +25,27 @@ export type SearchTrack = {
 	id: string;
 }
 
+export type Blog = {
+	id: string;
+	title: string;
+	content: string;
+}
 
 class ApiClass {
 	async getCurrentSong(): Promise<CurrentSong> {
 		const res = await fetch(`${SERVER_URL}/me/listening-to`)
+		const data = await res.json();
+		return data;
+	}
+
+	async getBlog(id: string): Promise<Blog> {
+		const res = await fetch(`${SERVER_URL}/blog/${id}`)
+		const data = await res.json();
+		return data;
+	}
+
+	async getAllBlogs(): Promise<Blog[]> {
+		const res = await fetch(`${SERVER_URL}/blog`)
 		const data = await res.json();
 		return data;
 	}

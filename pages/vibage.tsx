@@ -142,11 +142,11 @@ const SearchModal = (props: SearchModalProps) => {
 											 py-6 px-12 text-2xl "
 					/>
 				</div>
-				<FlipMove>
-					{
-						tracks.map((track, index) => <SearchTrack onClick={() => selectTrack(track)} track={track} key={index} />)
-					}
-				</FlipMove>
+				{/* <FlipMove> */}
+				{
+					tracks.map((track, index) => <SearchTrack onClick={() => selectTrack(track)} track={track} key={index} />)
+				}
+				{/* </FlipMove> */}
 			</div>
 		</div>
 	</div>

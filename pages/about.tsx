@@ -2,7 +2,7 @@ import { NextPage } from "next";
 import headshot from "../public/headshot.webp";
 import supplypikeImg from "../public/supplypike.png";
 import gcloudImg from "../public/gcloud.png";
-import Image from "next/legacy/image";
+import Image, { StaticImageData } from "next/legacy/image";
 import { motion } from "framer-motion"
 import { BouncingBackground } from "../components/BouncingBackground";
 import HeaderPage from "../views/HeaderPage";

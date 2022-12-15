@@ -1,4 +1,4 @@
-import Image from "next/legacy/image";
+import Image, { StaticImageData } from "next/legacy/image";
 
 type Props = {
 	src: StaticImageData;
