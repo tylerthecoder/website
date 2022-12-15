@@ -1,4 +1,5 @@
 import BlogSidebar from "./blog-sidebar"
+import 'katex/dist/katex.min.css';
 
 
 export default function BlogLayout({
