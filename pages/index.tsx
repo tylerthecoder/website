@@ -12,7 +12,7 @@ const Subtitle = () => {
   const { typedText, cursor } = useTypeyText("Full Stack Developer");
 
   return <div>
-    <p className="text-white text-center text-xl h-8">
+    <p className="h-8 text-xl text-center text-white">
       {typedText}
       {cursor && <span className="w-0"> | </span>}
     </p>
@@ -23,12 +23,7 @@ const HomButton = (props: ButtonHTMLAttributes<HTMLButtonElement> & { href: stri
   return <Link href={props.href} passHref>
     <button
       {...props}
-      className="
-        py-2 px-4 font-semibold border-2 border-white
-        rounded-lg shadow-md text-white bg-gray-400 bg-opacity-70
-        transform scale-100 duration-150 hover:scale-110 hover:bg-opacity-90
-        flex items-center justify-center
-      "
+      className="flex items-center justify-center px-4 py-2 font-semibold text-white bg-gray-400 border-2 border-white rounded-lg shadow-md  bg-opacity-70 transform scale-100 duration-150 hover:scale-110 hover:bg-opacity-90"
     >
       <div
         className='mr-1'
@@ -67,11 +62,11 @@ const Home = () => {
         <SplashBackground />
       </div>
       <div className="md:flex md:items-center z-0">
-        <CrazyImage
+    <div className="flex flex-col items-center justify-center w-full h-screen bg-black">
           src={headshotPic}
           alt="Tyler's headshot"
           width={225}
-          height={300}
+      <div className="z-0 md:flex md:items-center">
         />
         <div>
           <h1 className="text-6xl text-white text-center"> Hi, I'm Tyler </h1>
@@ -79,19 +74,19 @@ const Home = () => {
           {!!currentSong && <NowPlaying currentSong={currentSong} />}
         </div>
       </div>
-      <div className="pt-20 flex justify-evenly w-full space-x-0">
+          <h1 className="text-6xl text-center text-white"> Hi, I'm Tyler </h1>
         {showAboutButton &&
           <HomButton
             iconAlt='Github logo'
             iconSrc='/resume.svg'
-            href={"about"}
+      <div className="flex w-full pt-20 justify-evenly space-x-0">
           > About </HomButton>
         }
 
         <HomButton
           iconAlt='Github logo'
           iconSrc='/resume.svg'
-          href={"https://files.tylertracy.com/resume.pdf"}
+          href={"https://cloud.tylertracy.com/index.php/s/L79yp5wcqXSdKML"}
         >
           Resume
         </HomButton>

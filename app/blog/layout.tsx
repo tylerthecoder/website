@@ -7,10 +7,11 @@ export default function BlogLayout({
 }: {
 	children: React.ReactNode
 }) {
+
 	return (
-		<div className="flex h-full">
+		<div className="flex md:flex-row flex-col h-full">
 			<BlogSidebar />
-			<div className="p-5">
+			<div className="p-5 flex-grow">
 				{children}
 			</div>
 		</div>
